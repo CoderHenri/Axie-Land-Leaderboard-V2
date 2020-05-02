@@ -335,6 +335,11 @@ function ChartMaker(Array, WhichChart) {
     RestMenge = RestMenge + Array[i].amount;
   }
 
+  var GesamtMenge = 0;
+  for(i=0; Array.length > i; i++) {
+    GesamtMenge = GesamtMenge + Array[i].amount;
+  }
+
   var ctx = document.getElementById(WhichChart);
 
   var LandMenge = [Array[0].amount, Array[1].amount, Array[2].amount, Array[3].amount, Array[4].amount, Array[5].amount, Array[6].amount, Array[7].amount, Array[8].amount, RestMenge];
@@ -375,6 +380,16 @@ function ChartMaker(Array, WhichChart) {
       }]
     },
     options: {
+      tooltips: {
+        displayColors: false,
+        callbacks: {
+          afterLabel: function(tooltipItem, data) {
+            var dataset = data['datasets'][0];
+            var percent = Math.round((dataset['data'][tooltipItem['index']] / GesamtMenge) * 100)
+            return '(' + percent + '%)';
+          }
+        },
+      },
       responsive: false,
       legend: {
         display: true,
