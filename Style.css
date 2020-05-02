@@ -80,6 +80,8 @@
 .LL {
     display: inline-block;
     text-align: left;
+    position: relative;
+    left: 10px;
 }
   
 
