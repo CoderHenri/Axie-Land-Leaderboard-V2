@@ -256,10 +256,25 @@ async function ProfileNamer(Array, IDList, Reihenfolge) {
 var TotalPlotsOwned = [];
   
 function ListMaker(Array, IDList, Reihenfolge) {
-  
+
   document.getElementById(IDList).innerHTML = '<ol class="LL">' + Array.map(function (genesis) {
     return '<li>' + String(genesis["amount"]) + " Plots owned by " + String(genesis["owner"]) + '</li>';
   }).join('') + '</ol>';
+
+  var ChartChooser = "";
+  if(IDList === "GList") {
+    ChartChooser = "GChart";
+  } else if(IDList === "MList") {
+    ChartChooser = "MChart";
+  } else if(IDList === "AList") {
+    ChartChooser = "AChart";
+  } else if(IDList === "FList") {
+    ChartChooser = "FChart";
+  } else if(IDList === "SList") {
+    ChartChooser = "SChart";
+  }
+
+  ChartMaker(Array, ChartChooser);
   
   if(Reihenfolge === "Genesis"){
     TotalPlotsOwned = TotalPlotsOwned.concat(Array);
@@ -315,7 +330,6 @@ function TotalLeaderboardWriter(ArrayAr) {
 
 function ChartMaker(Array, WhichChart) {
 
-  console.log(Array);
   var RestMenge = 0;
   for(i=9; Array.length > i; i++) {
     RestMenge = RestMenge + Array[i].amount;
