@@ -309,4 +309,69 @@ function TotalLeaderboardWriter(ArrayAr) {
   document.getElementById("TList").innerHTML = '<ol class="LL">' + amount.map(function (genesis) {
     return '<li>' + String(genesis["amount"]) + " Plots owned by " + String(genesis["owner"]) + '</li>';
   }).join('') + '</ol>';
+
+  ChartMaker(amount, 'TChart');
+}
+
+function ChartMaker(Array, WhichChart) {
+
+  console.log(Array);
+  var RestMenge = 0;
+  for(i=9; Array.length > i; i++) {
+    RestMenge = RestMenge + Array[i].amount;
+  }
+
+  var ctx = document.getElementById(WhichChart);
+
+  var LandMenge = [Array[0].amount, Array[1].amount, Array[2].amount, Array[3].amount, Array[4].amount, Array[5].amount, Array[6].amount, Array[7].amount, Array[8].amount, RestMenge];
+  var LandBesitzer = [Array[0].owner, Array[1].owner, Array[2].owner, Array[3].owner, Array[4].owner, Array[5].owner, Array[6].owner, Array[7].owner, Array[8].owner, "All other Players"];
+
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: LandBesitzer,
+      datasets: [{
+          label: 'Axie Land',
+          data: LandMenge,
+          backgroundColor: [
+            'rgba(0,104,55, 0.4)',
+            'rgba(165,0,38, 0.4)',
+            'rgba(26,152,80, 0.4)',
+            'rgba(215,48,39, 0.4)',
+            'rgba(102,189,99, 0.4)',
+            'rgba(244,109,67, 0.4)',
+            'rgba(166,217,106, 0.4)',
+            'rgba(253,174,97, 0.4)',
+            'rgba(217,239,139, 0.4)',
+            'rgba(254,224,139, 0.4)'
+          ],
+          borderColor: [
+            'rgba(0,104,55, 1)',
+            'rgba(165,0,38, 1)',
+            'rgba(26,152,80, 1)',
+            'rgba(215,48,39, 1)',
+            'rgba(102,189,99, 1)',
+            'rgba(244,109,67, 1)',
+            'rgba(166,217,106, 1)',
+            'rgba(253,174,97, 1)',
+            'rgba(217,239,139, 1)',
+            'rgba(254,224,139, 1)'
+          ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: false,
+      legend: {
+        display: true,
+        position: 'bottom',
+        labels: {
+          fontColor: '#FF8C00',
+          boxWidth: 15,
+          fontSize: 15
+        }
+      }
+    }
+  })
+
 }
