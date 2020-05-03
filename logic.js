@@ -8,7 +8,7 @@ async function ReadTextFile() {
 function AsyncTextReader() {
   return new Promise(function (resolve, reject) {
       var objXMLhttp = new XMLHttpRequest()
-      objXMLhttp.open("GET", './Profile_Loom_Eth_Addresses.txt', true);
+      objXMLhttp.open("GET", './Textfiles/Profile_Loom_Eth_Addresses.txt', true);
       objXMLhttp.send();
       objXMLhttp.onreadystatechange = function(){
       if (objXMLhttp.readyState == 4){
@@ -353,16 +353,16 @@ function ChartMaker(Array, WhichChart) {
           label: 'Axie Land',
           data: LandMenge,
           backgroundColor: [
-            'rgba(0,104,55, 0.4)',
-            'rgba(165,0,38, 0.4)',
-            'rgba(26,152,80, 0.4)',
-            'rgba(215,48,39, 0.4)',
-            'rgba(102,189,99, 0.4)',
-            'rgba(244,109,67, 0.4)',
-            'rgba(166,217,106, 0.4)',
-            'rgba(253,174,97, 0.4)',
-            'rgba(217,239,139, 0.4)',
-            'rgba(254,224,139, 0.4)'
+            'rgba(0,104,55, 0.25)',
+            'rgba(165,0,38, 0.25)',
+            'rgba(26,152,80, 0.25)',
+            'rgba(215,48,39, 0.25)',
+            'rgba(102,189,99, 0.25)',
+            'rgba(244,109,67, 0.25)',
+            'rgba(166,217,106, 0.25)',
+            'rgba(253,174,97, 0.25)',
+            'rgba(217,239,139, 0.25)',
+            'rgba(254,224,139, 0.25)'
           ],
           borderColor: [
             'rgba(0,104,55, 1)',
