@@ -118,13 +118,8 @@
     transform: rotate(1800deg);
   }
 }
-  
 
-#ChartBox {
+.ClassChart {
   position: relative;
-  width: 3000px;
-  height: 500px;
-  display: grid;
-  grid-template-columns: 500px 500px 500px 500px 500px 500px;
+  top: 15px;
 }
-  
