@@ -395,9 +395,9 @@ function ChartMaker(Array, WhichChart) {
         display: true,
         position: 'bottom',
         labels: {
-          fontColor: '#FF8C00',
+          fontColor: '#FFFFFF',
           boxWidth: 15,
-          fontSize: 15
+          fontSize: 13
         }
       }
     }
