@@ -342,6 +342,12 @@ function ChartMaker(Array, WhichChart) {
 
   var ctx = document.getElementById(WhichChart);
 
+  var TotalLand = 0;
+
+  for(m=0; Array.length > m; m++){
+    TotalLand = TotalLand + Array[m].amount;
+  }
+
   var LandMenge = [Array[0].amount, Array[1].amount, Array[2].amount, Array[3].amount, Array[4].amount, Array[5].amount, Array[6].amount, Array[7].amount, Array[8].amount, RestMenge];
   var LandBesitzer = [Array[0].owner, Array[1].owner, Array[2].owner, Array[3].owner, Array[4].owner, Array[5].owner, Array[6].owner, Array[7].owner, Array[8].owner, "All other Players"];
 
@@ -380,6 +386,13 @@ function ChartMaker(Array, WhichChart) {
       }]
     },
     options: {
+      title: {
+        display: true,
+        position: 'top',
+        fontSize: 17,
+        fontFamily: 'Arial',
+        text: "Total Amount: " + TotalLand
+      },
       tooltips: {
         displayColors: false,
         callbacks: {
