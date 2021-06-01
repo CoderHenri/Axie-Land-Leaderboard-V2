@@ -122,7 +122,10 @@ async function GetLandData() {
   .then(function(data) {
     console.log(data);
     TempLandDataArray.push(data);
+    PartArrayMerger(TempLandDataArray);
   });
+
+  TempLandDataArray = [];
 
   await  fetch(url, {
     method: "POST",
@@ -225,20 +228,29 @@ async function GetLandData() {
   .then(function(data) {
     console.log(data);
     TempLandDataArray.push(data);
+    PartArrayMerger(TempLandDataArray);
   });
  
-  PartArrayMerger(TempLandDataArray);
+  
   console.log(LandDataArray);
 }
 
-function PartArrayMerger(ArrayToMerge) {  //since ArrayToMerge (LandDataArray) is a public Arrya we need the JSON.parse(JSON.stringify()) method
+function PartArrayMerger(Array) {  //since ArrayToMerge (LandDataArray) is a public Arrya we need the JSON.parse(JSON.stringify()) method
+  
+  console.log(Array);
+  var ArrayToMerge = [];
+  ArrayToMerge = JSON.parse(JSON.stringify(Array));
+  console.log(ArrayToMerge);
+  
   for(i=0; i<ArrayToMerge.length; i++) {
     for(j=0; j<85; j++) {
-      if(i==1 && j==74) {   //break for the second loop, since that should be the max number of lands
+      var key = "part"+(j+1);
+      
+      if(typeof ArrayToMerge[i].data[key] === 'undefined') {   //break for the second loop, since that should be the max number of lands
         console.log("Break " + j);
         break;
       }
-      var key = "part"+(j+1);
+      
       for(k=0; k<ArrayToMerge[i].data[key].results.length; k++) {
         LandDataArray.push(ArrayToMerge[i].data[key].results[k]);
       }
