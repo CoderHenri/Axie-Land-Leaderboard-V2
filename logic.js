@@ -306,7 +306,7 @@ function LeaderboardMaker() {
         } else if(LandDataArray[i].landType === "Savannah") {
           Sav = 1;
         }
-        ProfileStatsArray.push({Owner:LandDataArray[i].owner, Profile:LandDataArray[i].ownerProfile.name, Genesis:Gen, Mystic:Mys, Arctic:Arc, Forest:For, Savannah:Sav});
+        ProfileStatsArray.push({owner:LandDataArray[i].owner, Profile:LandDataArray[i].ownerProfile.name, Genesis:Gen, Mystic:Mys, Arctic:Arc, Forest:For, Savannah:Sav});
       }
     } else {
       Gen = 0;
@@ -325,7 +325,7 @@ function LeaderboardMaker() {
       } else if(LandDataArray[i].landType === "Savannah") {
         Sav = 1;
       }
-      ProfileStatsArray.push({Owner:LandDataArray[i].owner, Profile:LandDataArray[i].ownerProfile.name, Genesis:Gen, Mystic:Mys, Arctic:Arc, Forest:For, Savannah:Sav});
+      ProfileStatsArray.push({owner:LandDataArray[i].owner, Profile:LandDataArray[i].ownerProfile.name, Genesis:Gen, Mystic:Mys, Arctic:Arc, Forest:For, Savannah:Sav});
     }
   }
   console.log(ProfileStatsArray);
@@ -339,7 +339,7 @@ function ListMaker(Array) {
   for(i=0; Array.length > i; i++) {
     var Menge = Array[i].Genesis + Array[i].Mystic + Array[i].Arctic + Array[i].Forest + Array[i].Savannah;
     if(Menge == 1) {var Sentence = "Plot";} else {Sentence = "Plots";}
-    TotalList.push({Owner:Array[i].Owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
+    TotalList.push({owner:Array[i].owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
   }
   TotalList.sort((a,b) => b.amount - a.amount);
   document.getElementById("TList").innerHTML = '<ol class="LL">' + TotalList.map(function (genesis) {
@@ -353,7 +353,7 @@ function ListMaker(Array) {
     var Menge = Array[i].Genesis;
     if(Menge == 0) {continue;}
     if(Menge == 1) {var Sentence = "Plot";} else {Sentence = "Plots";}
-    GenesisList.push({Owner:Array[i].Owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
+    GenesisList.push({owner:Array[i].owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
   }
   GenesisList.sort((a,b) => b.amount - a.amount);
   document.getElementById("GList").innerHTML = '<ol class="LL">' + GenesisList.map(function (genesis) {
@@ -367,7 +367,7 @@ function ListMaker(Array) {
     var Menge = Array[i].Mystic;
     if(Menge == 0) {continue;}
     if(Menge == 1) {var Sentence = "Plot";} else {Sentence = "Plots";}
-    MysticList.push({Owner:Array[i].Owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
+    MysticList.push({owner:Array[i].owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
   }
   MysticList.sort((a,b) => b.amount - a.amount);
   document.getElementById("MList").innerHTML = '<ol class="LL">' + MysticList.map(function (genesis) {
@@ -381,7 +381,7 @@ function ListMaker(Array) {
     var Menge = Array[i].Arctic;
     if(Menge == 0) {continue;}
     if(Menge == 1) {var Sentence = "Plot";} else {Sentence = "Plots";}
-    ArcticList.push({Owner:Array[i].Owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
+    ArcticList.push({owner:Array[i].owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
   }
   ArcticList.sort((a,b) => b.amount - a.amount);
   document.getElementById("AList").innerHTML = '<ol class="LL">' + ArcticList.map(function (genesis) {
@@ -395,7 +395,7 @@ function ListMaker(Array) {
     var Menge = Array[i].Forest;
     if(Menge == 0) {continue;}
     if(Menge == 1) {var Sentence = "Plot";} else {Sentence = "Plots";}
-    ForestList.push({Owner:Array[i].Owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
+    ForestList.push({owner:Array[i].owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
   }
   ForestList.sort((a,b) => b.amount - a.amount);
   document.getElementById("FList").innerHTML = '<ol class="LL">' + ForestList.map(function (genesis) {
@@ -409,7 +409,7 @@ function ListMaker(Array) {
     var Menge = Array[i].Savannah;
     if(Menge == 0) {continue;}
     if(Menge == 1) {var Sentence = "Plot";} else {Sentence = "Plots";}
-    SavannahList.push({Owner:Array[i].Owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
+    SavannahList.push({owner:Array[i].owner, Profile:Array[i].Profile, amount:Menge, SenPlot:Sentence});
   }
   SavannahList.sort((a,b) => b.amount - a.amount);
   document.getElementById("SList").innerHTML = '<ol class="LL">' + SavannahList.map(function (genesis) {
